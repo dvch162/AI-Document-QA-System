@@ -1,0 +1,4 @@
+gensim
+pinecone
+numpy
+nltk
