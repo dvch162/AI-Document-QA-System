@@ -1,0 +1,31 @@
+Project Overview
+
+The AI-Enhanced Document QA System is designed to ingest documents, extract relevant information, and provide users with the ability to ask questions regarding the content of these documents. The system leverages advanced AI models, a vector database for efficient searching, and natural language processing techniques to deliver accurate and contextual answers. The project comprises several key components: a backend server using Node.js, a frontend interface built with React, and a Python script for topic modeling.
+Project Approach
+
+    Backend Development:
+        Framework: The backend is built using Express.js, which provides a robust and flexible environment for creating RESTful APIs.
+        Endpoints:
+            Document Ingestion (/upload): This endpoint accepts PDF or plain text files for processing. It includes logic for text extraction, chunking, and named entity recognition.
+            Question Answering (/qa): This endpoint allows users to submit questions and retrieves answers based on the processed document data.
+        Document Processing Pipeline: This involves text extraction (for PDFs), chunking the text into manageable pieces, performing named entity recognition (NER), and generating vector embeddings using a model like OpenAI's GPT-4.
+        Integration with Pinecone: The vector embeddings are stored in Pinecone, enabling fast and efficient search capabilities.
+
+    Frontend Development:
+        User Interface: The frontend, developed in React, provides a clean and intuitive user interface for document upload, processing status, and question submission.
+        Visualization: It displays relevant document chunks and confidence scores to help users understand the context of the answers.
+
+    AI Integration:
+        Advanced Text Analysis: Using APIs like Claude 3.5 or GPT-4 for deep text analysis during document processing and for generating responses to user queries.
+        Retrieval Augmented Generation (RAG): Implementing RAG to enhance the AI model's prompts with relevant context retrieved from Pinecone, leading to more accurate and contextual answers.
+
+    Python Script for Topic Modeling:
+        A Python script is included to perform basic topic modeling on ingested documents. This script updates the document metadata in Pinecone with extracted topics, enabling more informed searches and responses.
+
+Challenges Faced
+
+    Submodule Issues: During the development, the frontend directory was mistakenly treated as a Git submodule. This caused confusion and required careful steps to resolve by removing the submodule reference and cleaning up the directory structure.
+
+    Integration of Multiple Technologies: Combining Node.js, React, and Python scripts presented challenges in ensuring that data flows seamlessly between the components. Careful planning of API endpoints and data formats was necessary to facilitate smooth integration.
+
+    Vector Database Configuration: Setting up and configuring Pinecone for efficient vector storage and search required a good understanding of the Pinecone API, which initially posed a learning curve.
